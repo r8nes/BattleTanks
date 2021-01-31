@@ -15,7 +15,6 @@ namespace OOP_Komposition_And_More
             int selectedAmmo;
             int selectedArmor;
             
-
             while (true) {
 
                 // Player 1
@@ -24,7 +23,7 @@ namespace OOP_Komposition_And_More
                 selectedAmmo = -1;
 
                 //ошибка тут
-                while (player1.LoadedAmmo == null)
+                while (selectedAmmo < 0)
                 {
                     while (selectedAmmo < 0 || selectedAmmo > 2) {
                         Console.WriteLine("Выбрать снаряд: ");
@@ -56,7 +55,7 @@ namespace OOP_Komposition_And_More
                 Console.WriteLine("Нажмите ENTER для выстрела");
                 Console.ReadKey();
 
-                Ammo flyingAmmo = (Ammo)player1.Shoot()?.Clone();
+                Ammo flyingAmmo = (Ammo)player1.Shoot();
                 if (flyingAmmo != null) {
                     player2.HandleHit(flyingAmmo);
                 }
@@ -68,7 +67,7 @@ namespace OOP_Komposition_And_More
                 // Player 2 
                 Console.WriteLine("======== Игрок 2 ==========");
                 selectedAmmo = -1;
-                while (player2.LoadedAmmo == null)
+                while (selectedAmmo < 0)
                 {
                     while (selectedAmmo < 0 || selectedAmmo > 2)
                     {
